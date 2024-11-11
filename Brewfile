@@ -1,4 +1,3 @@
 nvim
 tmux
---cask wezterm
-
+cask wezterm
