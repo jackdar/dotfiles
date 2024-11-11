@@ -8,11 +8,11 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Starship
-eval "$(starship init zsh)"
-
 export EDITOR='nvim'
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Starship
+eval "$(starship init zsh)"
 
 # Added By PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
