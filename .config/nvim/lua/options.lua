@@ -12,7 +12,7 @@ vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
+vim.opt.showmode = true
 
 -- Set highlight on search
 vim.opt.hlsearch = false
@@ -24,9 +24,9 @@ vim.opt.termguicolors = true
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+-- vim.schedule(function()
+--   vim.opt.clipboard = 'unnamedplus'
+-- end)
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -56,13 +56,17 @@ vim.opt.splitbelow = true
 vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 4
 
+-- Disable text wrapping
+vim.opt.wrap = false
+
 -- Set highlight on search
 vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 -- Don't split words
 vim.opt.linebreak = true
@@ -81,3 +85,6 @@ vim.opt.expandtab = true
 
 -- Minimum number of screen columns either side of the cursor
 vim.opt.sidescrolloff = 8
+
+-- Insert mode cursor as block
+vim.opt.guicursor = 'n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'

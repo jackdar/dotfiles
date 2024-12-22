@@ -35,3 +35,6 @@ local lazy_config = require 'configs.lazy'
 require('lazy').setup({
   { import = 'plugins' },
 }, lazy_config)
+
+-- [[ Setting colorscheme ]]
+require 'colorscheme'
