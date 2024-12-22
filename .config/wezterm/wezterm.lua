@@ -5,12 +5,12 @@ local config = wezterm.config_builder()
 config = {
   automatically_reload_config = true,
   enable_tab_bar = false,
-  window_close_confirmation = 'NeverPrompt',
   window_decorations = 'RESIZE',
-  color_scheme = 'Catppuccin Macchiato (Gogh)',
+  window_close_confirmation = 'NeverPrompt',
+  color_scheme = 'GruvboxDarkHard',
   font = wezterm.font {
     family = 'BlexMono Nerd Font Mono',
-    weight = 'Medium',
+    weight = 400,
   },
   freetype_load_target = 'Light',
   font_size = 18,
