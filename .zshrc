@@ -53,11 +53,12 @@ export PATH="$PATH:/Users/jackdarlington/.nvm/versions/node/v21.6.1/lib/node_mod
 # -------
 alias ls="eza" # List files in current directory
 alias l="eza --color=always --git --no-filesize --icons=always --no-time --no-user --no-permissions" # List files in current directory in long list format
-alias ll="eza -la" # List files in current directory in long list format
+alias ll="eza -la --color=always --git --icons=always --no-user" # List files in current directory in long list format
 alias lt="eza --tree --level=3" # List files in current directory in tree format
 alias o="open ." # Open the current directory in Finder
 alias cd="z" # Change directory with fuzzy search
 alias zz="z -"
+alias vim="nvim"
 
 # ----------------------
 # Git Aliases
@@ -72,6 +73,7 @@ alias gsw='git switch'
 alias gswc='git switch -c'
 alias glo='git log --oneline'
 alias gs='echo ""; echo "*********************************************"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "*********************************************"; echo ""; git status'
+alias lg='lazygit'
 
 # Activate syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -95,3 +97,6 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 # Herd Lite PHP
 export PATH="/Users/jackdarlington/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/Users/jackdarlington/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# Add custom local scripts to PATH
+export PATH="/Users/jackdarlington/.local/scripts/:$PATH"
