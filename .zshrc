@@ -1,18 +1,33 @@
-export ZSH="$HOME/.oh-my-zsh"
-
-ZSH_THEME="robbyrussell"
-CASE_SENSITIVE="true"
-# ENABLE_CORRECTION="true"
-
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
+# Set default editor to Neovim
 export EDITOR='nvim'
+
+# Set up the Homebrew environment
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Starship
 eval "$(starship init zsh)"
+
+# fzf
+source <(fzf --zsh)
+
+# Use fd instead of the default find
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+_fzf_compgen_path() {
+    fd --hidden --exclude .git . "$1"
+}
+
+_fzf_compgen_dir() {
+    fd --type=d --hidden --exclude .git . "$1"
+}
+
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+# Zoxide
+eval "$(zoxide init zsh)"
 
 # Added By PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -36,9 +51,13 @@ export PATH="$PATH:/Users/jackdarlington/.nvm/versions/node/v21.6.1/lib/node_mod
 # -------
 # Aliases
 # -------
-alias l="ls" # List files in current directory
-alias ll="ls -la" # List files in current directory in long list format
+alias ls="eza" # List files in current directory
+alias l="eza --color=always --git --no-filesize --icons=always --no-time --no-user --no-permissions" # List files in current directory in long list format
+alias ll="eza -la" # List files in current directory in long list format
+alias lt="eza --tree --level=3" # List files in current directory in tree format
 alias o="open ." # Open the current directory in Finder
+alias cd="z" # Change directory with fuzzy search
+alias zz="z -"
 
 # ----------------------
 # Git Aliases
@@ -49,31 +68,30 @@ alias gcm='git commit -m'
 alias gpsh='git push'
 alias gpll='git pull'
 alias gss='git status -s'
+alias gsw='git switch'
+alias gswc='git switch -c'
+alias glo='git log --oneline'
 alias gs='echo ""; echo "*********************************************"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "*********************************************"; echo ""; git status'
 
 # Activate syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Activate autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Disable underline
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
-# Activate autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # Activate completions
 fpath=(path/to/zsh-completions/src $fpath)
 
-# History
-HISTSIZE=5000
-HISTFILE=~/.zsh_history
-SAVEHIST=$HISTSIZE
-HISTDUP=erase
-setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
+# Go Path
+export GOPATH=$HOME/go
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+# Herd Lite PHP
+export PATH="/Users/jackdarlington/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/Users/jackdarlington/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"

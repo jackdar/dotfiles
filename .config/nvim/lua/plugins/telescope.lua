@@ -12,6 +12,7 @@ return {
     branch = '0.1.x',
     dependencies = {
       'nvim-lua/plenary.nvim',
+      'andrew-george/telescope-themes',
       { -- If encountering errors, see telescope-fzf-native README for installation instructions
         'nvim-telescope/telescope-fzf-native.nvim',
 
@@ -56,15 +57,68 @@ return {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
-        --   mappings = {
-        --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-        --   },
-        -- },
-        -- pickers = {}
+        defaults = {
+          file_ignore_patterns = { 'node_modules', '.git', 'vendor' },
+          --   mappings = {
+          --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+          --   },
+        },
+        pickers = {
+          find_files = {
+            hidden = true,
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
+          },
+          ['themes'] = {
+            -- you can add regular telescope config
+            -- that you want to apply on this picker only
+            layout_config = {
+              horizontal = {
+                width = 0.8,
+                height = 0.7,
+              },
+            },
+
+            -- (boolean) -> show/hide previewer window
+            enable_previewer = true,
+
+            -- (boolean) -> enable/disable live preview
+            enable_live_preview = false,
+
+            -- all builtin themes are ignored by default
+            -- (list) -> provide table of theme names to overwrite builtins list
+            ignore = { 'default', 'desert', 'elflord', 'habamax' },
+            -- OR
+            -- extend the required `builtin_schemes` list to ignore other
+            -- schemes in addition to builtin schemes
+            -- ignore = vim.list_extend(builtin_schemes, { 'embark' }),
+
+            -- (table)
+            -- (boolean) ignore -> toggle ignore light themes
+            -- (list) keywords -> list of keywords that would identify as light theme
+            light_themes = {
+              ignore = true,
+              keywords = { 'light', 'day', 'frappe' },
+            },
+
+            -- (table)
+            -- (boolean) ignore -> toggle ignore dark themes
+            -- (list) keywords -> list of keywords that would identify as dark theme
+            dark_themes = {
+              ignore = false,
+              keywords = { 'dark', 'night', 'black' },
+            },
+
+            persist = {
+              -- enable persisting last theme choice
+              enabled = true,
+
+              -- override path to file that execute colorscheme command
+              path = vim.fn.stdpath 'config' .. '/lua/colorscheme.lua',
+            },
           },
         },
       }
@@ -72,6 +126,7 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      pcall(require('telescope').load_extension 'themes')
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
@@ -108,6 +163,11 @@ return {
       vim.keymap.set('n', '<leader>fn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[F]ind [N]eovim files' })
+
+      -- Shortcut for searchin in current file directory
+      vim.keymap.set('n', '<leader>fc', function()
+        builtin.find_files { cwd = vim.fn.expand '%:p:h' }
+      end, { desc = '[F]ind [C]urrent file directory' })
     end,
   },
 }

@@ -2,6 +2,11 @@ return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-refactor',
+      'EmranMR/tree-sitter-blade',
+    },
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
@@ -35,6 +40,10 @@ return {
         'java',
         'toml',
         'ruby',
+        'php',
+        'html',
+        'css',
+        'blade',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
