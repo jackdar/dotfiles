@@ -179,12 +179,17 @@ return {
         cssls = {},
         tailwindcss = {},
         sqls = {},
+        clangd = {},
+        rust_analyzer = {},
         dockerls = {
           filetypes = { 'Dockerfile', 'dockerfile' },
         },
         docker_compose_language_service = {
           filetypes = { 'yaml.docker-compose' },
         },
+        -- intelephense = {
+        --   filetypes = { 'php', 'blade' },
+        -- },
         phpactor = {
           filetypes = { 'php', 'blade' },
         },

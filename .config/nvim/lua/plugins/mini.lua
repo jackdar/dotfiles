@@ -32,8 +32,13 @@ return {
       --   return '%2l:%-2v'
       -- end
 
-      -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      -- Easily comment lines
+      --
+      -- Examples:
+      --  - gc  - Toggle [c]omment for normal and visual mode
+      --  - gcc - Toggle [c]omment on the [c]urrent line
+      --  - gc  - Defines a textobject (like `dgc` - delete whole comment block)
+      require('mini.comment').setup()
     end,
   },
 }

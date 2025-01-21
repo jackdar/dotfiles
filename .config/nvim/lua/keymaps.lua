@@ -50,8 +50,8 @@ vim.keymap.set('v', '>', '>gv', opts)
 vim.keymap.set('n', '<leader>w', '<cmd> set wrap! <CR>', opts)
 
 -- Set keymaps for buffer management
--- vim.keymap.set('n', '<leader>x', ':bd!<CR>', opts)
-vim.keymap.set('n', '<leader>c', '<cmd> enew <CR>', opts)
+vim.keymap.set('n', '<leader>bx', ':bd!<CR>', opts)
+vim.keymap.set('n', '<leader>bc', '<cmd> enew <CR>', opts)
 
 -- Toggle find and replace for the word under the cursor in the current buffer
 vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', opts)
@@ -82,3 +82,7 @@ vim.keymap.set('n', '<leader>sv', function()
   vim.cmd.startinsert()
   vim.api.nvim_win_set_width(0, 40)
 end, opts)
+
+-- Run make build quickly
+vim.keymap.set('n', '<leader>m', ':make build<CR>', opts)
+vim.keymap.set('n', '<leader>M', ':make run<CR>', opts)

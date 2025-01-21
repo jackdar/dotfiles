@@ -164,7 +164,7 @@ return {
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[F]ind [N]eovim files' })
 
-      -- Shortcut for searchin in current file directory
+      -- Shortcut for searching in current file directory
       vim.keymap.set('n', '<leader>fc', function()
         builtin.find_files { cwd = vim.fn.expand '%:p:h' }
       end, { desc = '[F]ind [C]urrent file directory' })

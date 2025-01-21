@@ -11,7 +11,6 @@ return {
         ['<C-k>'] = false,
         ['<C-j>'] = false,
         ['\\'] = false,
-        ['<M-h>'] = 'actions.select_split',
       },
       view_options = {
         show_hidden = false,

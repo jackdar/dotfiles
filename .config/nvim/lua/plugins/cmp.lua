@@ -51,16 +51,16 @@ return {
           end,
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
-        window = {
-          completion = {
-            border = 'rounded',
-            -- winhighlight = 'Normal:MyPmenu,FloatBorder:MyPmenu',
-          },
-          documentation = {
-            border = 'rounded',
-            -- winhighlight = 'Normal:MyPmenu,FloatBorder:MyPmenu',
-          },
-        },
+        -- window = {
+        --   completion = {
+        --     border = 'rounded',
+        --     -- winhighlight = 'Normal:MyPmenu,FloatBorder:MyPmenu',
+        --   },
+        --   documentation = {
+        --     border = 'rounded',
+        --     -- winhighlight = 'Normal:MyPmenu,FloatBorder:MyPmenu',
+        --   },
+        -- },
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
         --
@@ -80,9 +80,11 @@ return {
           --  This will expand snippets if the LSP sent a snippet.
           -- ['<C-y>'] = cmp.mapping.confirm { select = true },
 
+          ['<Tab>'] = cmp.mapping.confirm { select = true },
+
           -- If you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          ['<CR>'] = cmp.mapping.confirm { select = true },
+          -- ['<CR>'] = cmp.mapping.confirm { select = true },
           -- ['<Tab>'] = cmp.mapping.select_next_item(),
           -- ['<S-Tab>'] = cmp.mapping.select_prev_item(),
 

@@ -13,10 +13,6 @@ return {
     'tpope/vim-rhubarb',
   },
   {
-    -- Powerful commenting for Vim
-    'numtostr/comment.nvim',
-  },
-  {
     -- Highlight todo, notes, etc in comments
     'folke/todo-comments.nvim',
     event = 'VimEnter',
@@ -30,13 +26,13 @@ return {
       require('colorizer').setup()
     end,
   },
-  {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {},
-  },
+  -- {
+  --   'lukas-reineke/indent-blankline.nvim',
+  --   main = 'ibl',
+  --   ---@module "ibl"
+  --   ---@type ibl.config
+  --   opts = {},
+  -- },
   { -- Autopair brackets and parenthesis
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
