@@ -5,6 +5,12 @@ return {
     'tpope/vim-sleuth',
   },
   {
+    -- Show git status in the oil file explorer
+    'refractalize/oil-git-status.nvim',
+    dependencies = { 'stevearc/oil.nvim' },
+    config = true,
+  },
+  {
     -- Powerful Git integration for Vim
     'tpope/vim-fugitive',
   },
@@ -26,13 +32,13 @@ return {
       require('colorizer').setup()
     end,
   },
-  -- {
-  --   'lukas-reineke/indent-blankline.nvim',
-  --   main = 'ibl',
-  --   ---@module "ibl"
-  --   ---@type ibl.config
-  --   opts = {},
-  -- },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  },
   { -- Autopair brackets and parenthesis
     'windwp/nvim-autopairs',
     event = 'InsertEnter',

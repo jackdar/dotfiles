@@ -1,11 +1,14 @@
 -- [[ Keymaps ]]
 --  See `:help vim.keymap.set()`
-
+--
 local opts = { noremap = true, silent = true }
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- Quick save the current buffer
+vim.keymap.set('n', '<leader>w', ':w %<CR>', opts)
 
 -- Move command to move lines in visual mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
@@ -20,11 +23,11 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnos
 vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
--- Source current file
-vim.keymap.set('n', '<leader>x', ':source %<CR>', opts)
-
 -- Make executable
-vim.keymap.set('n', '<leader><leader>x', ':!chmod +x %<CR>', opts)
+vim.keymap.set('n', '<leader>x', ':!chmod +x %<CR>', opts)
+
+-- Source current file
+vim.keymap.set('n', '<leader><leader>x', ':source %<CR>', opts)
 
 -- Vertical scroll and center
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
@@ -47,7 +50,7 @@ vim.keymap.set('v', '<', '<gv', opts)
 vim.keymap.set('v', '>', '>gv', opts)
 
 -- Toggle line wrapping
-vim.keymap.set('n', '<leader>w', '<cmd> set wrap! <CR>', opts)
+vim.keymap.set('n', '<leader>lw', '<cmd> set wrap! <CR>', opts)
 
 -- Set keymaps for buffer management
 vim.keymap.set('n', '<leader>bx', ':bd!<CR>', opts)
@@ -86,3 +89,12 @@ end, opts)
 -- Run make build quickly
 vim.keymap.set('n', '<leader>m', ':make build<CR>', opts)
 vim.keymap.set('n', '<leader>M', ':make run<CR>', opts)
+
+local isLspDiagnosticsVisible = true
+vim.keymap.set('n', '<leader>lx', function()
+  isLspDiagnosticsVisible = not isLspDiagnosticsVisible
+  vim.diagnostic.config {
+    virtual_text = isLspDiagnosticsVisible,
+    underline = isLspDiagnosticsVisible,
+  }
+end)

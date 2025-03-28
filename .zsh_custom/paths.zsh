@@ -22,8 +22,8 @@ export PATH="$PATH:$GOPATH/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 # Herd Lite PHP
-export PATH="/Users/jackdarlington/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/Users/jackdarlington/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+export PATH="$HOME/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
 # Add custom local scripts to PATH
-export PATH="/Users/jackdarlington/.local/scripts/:$PATH"
+export PATH="$HOME/.local/scripts/:$PATH"

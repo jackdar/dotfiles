@@ -70,7 +70,7 @@ ZSH_CUSTOM=~/.zsh_custom/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z tmux zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git tmux zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,3 +106,11 @@ fi
 source $ZSH_CUSTOM/paths.zsh
 source $ZSH_CUSTOM/aliases.zsh
 source $ZSH_CUSTOM/options.zsh
+
+# pnpm
+export PNPM_HOME="/Users/jackdarlington/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

@@ -69,8 +69,9 @@ return {
     priority = 1000,
     config = function()
       require('rose-pine').setup {
+        transparent = true,
         disable_background = true,
       }
     end,
-  },
+  }
 }

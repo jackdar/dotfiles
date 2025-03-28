@@ -1,3 +1,7 @@
+# --[[ Git ]]--
+export GIT_CONFIG_GLOBAL=$HOME/.config/git/.gitconfig
+export GIT_IGNORE_GLOBAL=$HOME/.config/git/.gitignore
+
 # --[[ FZF ]]--
 # Use fd instead of the default find
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"

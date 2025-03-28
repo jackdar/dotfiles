@@ -185,7 +185,7 @@ return {
           filetypes = { 'Dockerfile', 'dockerfile' },
         },
         docker_compose_language_service = {
-          filetypes = { 'yaml.docker-compose' },
+          filetypes = { 'yaml.docker-compose', 'yml.docker-compose' },
         },
         -- intelephense = {
         --   filetypes = { 'php', 'blade' },

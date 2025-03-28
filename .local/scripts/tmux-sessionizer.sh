@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(fd . ~/ ~/work ~/personal ~/skyline -d 1 -t d | sed "s|$HOME|~|" | fzf | sed "s|^~|$HOME|" | sed 's:/*$::')
+    selected=$(fd . ~/ ~/work ~/personal ~/skyline ~/personal/go-projects ~/personal/rust-projects -d 1 -t d | sed "s|$HOME|~|" | fzf | sed "s|^~|$HOME|" | sed 's:/*$::')
 fi
 
 if [[ -z $selected ]]; then

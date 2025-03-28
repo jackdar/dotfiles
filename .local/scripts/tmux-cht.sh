@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
 selected=$(cat ~/.config/tmux/tmux-cht-languages ~/.config/tmux/tmux-cht-commands | fzf)
 
 if [[ -z $selected ]]; then

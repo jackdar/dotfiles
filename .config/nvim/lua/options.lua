@@ -83,6 +83,9 @@ vim.opt.softtabstop = 4
 -- Convert tabs to spaces (default: false)
 vim.opt.expandtab = true
 
+-- Enable auto-indentation
+-- vim.opt.autoindent = true
+
 -- Minimum number of screen columns either side of the cursor
 vim.opt.sidescrolloff = 8
 
