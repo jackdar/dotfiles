@@ -181,6 +181,9 @@ return {
         sqls = {},
         clangd = {},
         rust_analyzer = {},
+        zls = {
+          filetypes = { 'zig' },
+        },
         dockerls = {
           filetypes = { 'Dockerfile', 'dockerfile' },
         },

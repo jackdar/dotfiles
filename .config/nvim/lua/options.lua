@@ -12,7 +12,7 @@ vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
-vim.opt.showmode = true
+-- vim.opt.showmode = true
 
 -- Set highlight on search
 vim.opt.hlsearch = false
@@ -56,7 +56,7 @@ vim.opt.splitbelow = true
 vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 4

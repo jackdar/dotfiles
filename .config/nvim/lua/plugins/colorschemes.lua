@@ -24,6 +24,7 @@ return {
           treesitter = true,
           treesitter_context = true,
         },
+        transparent_background = true,
       }
 
       -- Hide all semantic highlights until upstream issues are resolved (https://github.com/catppuccin/nvim/issues/480)
@@ -73,5 +74,5 @@ return {
         disable_background = true,
       }
     end,
-  }
+  },
 }

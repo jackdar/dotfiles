@@ -48,11 +48,7 @@ fi
 # Install additional packages from Brewfile if it exists
 if [ -f "$BREWFILE" ]; then
     echo "Installing additional packages from $BREWFILE..."
-    while IFS= read -r package; do
-        # Skip empty lines and comments
-        [[ -z "$package" || "$package" == \#* ]] && continue
-        install_package "$package"
-    done <"$BREWFILE"
+    brew bundle --file="$BREWFILE" --no-lock
 else
     echo "No Brewfile found at $BREWFILE. Skipping additional package installation."
 fi
@@ -61,5 +57,8 @@ fi
 echo "Running stow to symlink dotfiles..."
 cd "$DOTFILES_DIR"
 stow .
+
+# Symlink specific configuration files
+ln -s "$DOTFILES_DIR/.config/tmux/tmux.conf" "$HOME/.tmux.conf"
 
 echo "Dotfile setup complete!"

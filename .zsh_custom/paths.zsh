@@ -1,3 +1,6 @@
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Added By PyEnv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -24,6 +27,13 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 # Herd Lite PHP
 export PATH="$HOME/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="$HOME/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# pnpm
+export PNPM_HOME="/Users/jackdarlington/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 # Add custom local scripts to PATH
 export PATH="$HOME/.local/scripts/:$PATH"

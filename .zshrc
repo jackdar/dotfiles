@@ -106,11 +106,3 @@ fi
 source $ZSH_CUSTOM/paths.zsh
 source $ZSH_CUSTOM/aliases.zsh
 source $ZSH_CUSTOM/options.zsh
-
-# pnpm
-export PNPM_HOME="/Users/jackdarlington/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
