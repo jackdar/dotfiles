@@ -91,3 +91,7 @@ vim.opt.sidescrolloff = 8
 
 -- Insert mode cursor as block
 -- vim.opt.guicursor = 'n-v-c-sm:block,ci-ve:ver25,r-cr-o:hor20,i:block-blinkwait700-blinkoff400-blinkon250-Cursor/lCursor'
+
+-- If performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s).
+vim.opt.confirm = true
