@@ -5,7 +5,7 @@ export FZF_DEFAULT_OPTS='
 --tmux
 --prompt="SSH > "
 --print-query
---preview="awk -v HOST={} -f ~/.local/scripts/host2conf.sh ~/.ssh/config"'
+--preview="awk -v HOST={} -f ~/.local/bin/host2conf.sh ~/.ssh/config"'
 
 # Capture both the query and the selection separately
 read -r typed_host selected_host < <(grep '^[[:space:]]*Host[[:space:]]' ~/.ssh/config | cut -d ' ' -f 2 | fzf)

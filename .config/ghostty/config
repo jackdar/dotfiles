@@ -1,5 +1,7 @@
 theme = rose-pine
 font-size = 20
+font-family = "Fira Code"
+font-synthetic-style = false
 shell-integration = zsh
 shell-integration-features = no-cursor,no-sudo,no-title
 cursor-style = block
@@ -8,5 +10,5 @@ macos-titlebar-proxy-icon = hidden
 title = " "
 window-padding-balance = true
 copy-on-select = clipboard
-command = $HOME/.local/scripts/login.sh
-# background = 000000
+command = $HOME/.local/bin/login.sh
+background = 0e0e0e

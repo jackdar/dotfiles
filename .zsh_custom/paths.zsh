@@ -36,4 +36,4 @@ case ":$PATH:" in
 esac
 
 # Add custom local scripts to PATH
-export PATH="$HOME/.local/scripts/:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
