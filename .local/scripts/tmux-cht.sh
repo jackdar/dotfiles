@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TMUX Cheat Sheet. Usage: "<ctrl-s> i"
+
 selected=$(cat ~/.config/tmux/tmux-cht-languages ~/.config/tmux/tmux-cht-commands | fzf)
 
 if [[ -z $selected ]]; then

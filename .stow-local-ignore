@@ -1,6 +1,7 @@
 \.git
 \.gitignore
 \.gitmodules
+\.DS_Store
 
 ^/README.*
 ^/LICENSE.*
@@ -8,3 +9,4 @@
 
 Brewfile
 dotfiles_setup.sh
+fonts

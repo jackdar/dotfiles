@@ -10,5 +10,5 @@ macos-titlebar-proxy-icon = hidden
 title = " "
 window-padding-balance = true
 copy-on-select = clipboard
-command = $HOME/.local/bin/login.sh
+command = $HOME/.local/scripts/login.sh
 background = 0e0e0e

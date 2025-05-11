@@ -1,11 +1,19 @@
 # Formulae
 brew 'tmux'
 brew 'neovim'
-brew 'gawk'
-brew 'ffmpeg'
 brew 'wget'
+brew 'fzf'
+brew 'go'
+brew 'zoxide'
+brew 'eza'
+brew 'ripgrep'
+brew 'fd'
+brew 'lazygit'
 
 # Casks
 cask 'ghostty'
 cask 'raycast'
 cask 'docker'
+cask 'scroll-reverser'
+cask 'karabiner-elements'
+cask 'hiddenbar'

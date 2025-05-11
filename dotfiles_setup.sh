@@ -20,17 +20,6 @@ install_homebrew() {
     fi
 }
 
-# Define function to install a package if not already installed
-install_package() {
-    local package=$1
-    if ! command -v $package &>/dev/null; then
-        echo "Installing $package..."
-        brew install $package
-    else
-        echo "$package is already installed."
-    fi
-}
-
 # Install Homebrew, Git, and Stow
 install_homebrew
 install_package git
@@ -48,7 +37,7 @@ fi
 # Install additional packages from Brewfile if it exists
 if [ -f "$BREWFILE" ]; then
     echo "Installing additional packages from $BREWFILE..."
-    brew bundle --file="$BREWFILE" --no-lock
+    brew bundle --file="$BREWFILE"
 else
     echo "No Brewfile found at $BREWFILE. Skipping additional package installation."
 fi

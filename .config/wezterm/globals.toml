@@ -1,9 +1,0 @@
-OLED = false
-colorscheme = "Rosé Pine (Gogh)"
-opacity = 1
-
-[font]
-family = "FiraCode Nerd Font"
-weight = 400
-size = 18
-lineHeight = 1

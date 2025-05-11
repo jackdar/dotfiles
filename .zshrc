@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -65,12 +66,14 @@ DISABLE_AUTO_TITLE="true"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=~/.zsh_custom/
 
+# zstyle ':omz:plugins:nvm' lazy yes
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -106,3 +109,7 @@ fi
 source $ZSH_CUSTOM/paths.zsh
 source $ZSH_CUSTOM/aliases.zsh
 source $ZSH_CUSTOM/options.zsh
+source $ZSH_CUSTOM/variables.zsh
+source $ZSH_CUSTOM/widgets.zsh
+
+# zprof

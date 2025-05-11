@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TMUX Configurator. Usage: "<ctrl-s> o"
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
@@ -13,4 +15,4 @@ fi
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 
-tmux neww zsh -c "nvim $selected"
+tmux neww zsh -c "nvim $selected -c 'lcd $selected'"
