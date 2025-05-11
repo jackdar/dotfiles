@@ -1,11 +1,3 @@
-# Clear terminal
-function clear-terminal() {
-  tput reset;
-  zle redisplay;
-}
-zle -N clear-terminal
-bindkey '^l' clear-terminal
-
   # Get ticket number from branch name and paste into shell buffer
 function paste_ticket_number() {
   function get_ticket_number() {
