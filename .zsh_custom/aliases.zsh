@@ -10,6 +10,6 @@ alias vim="nvim"
 # alias list="nvim '+normal Go' +startinsert ~/personal/todo.md" 
 alias lg=lazygit
 # alias sail='sh $([ -f sail ] && echo sail || echo vendor/bin/sail)'
-# alias shadcn="npx shadcn@latest"
+alias shadcn="npx shadcn@latest"
 alias nvm="fnm"
 alias "npm run"="NODE_TLS_REJECT_UNAUTHORIZED=0 npm run"
