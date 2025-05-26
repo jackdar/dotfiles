@@ -1,0 +1,14 @@
+.DS_Store
+
+**/.gitconfig*
+
+**/gh/**
+**/git/**
+**/github-copilot/**
+**/jgit/**
+
+**/vendor
+
+# Work settings ignore
+**/.local/bachcare/*
+**/.zsh_custom/bachcare*

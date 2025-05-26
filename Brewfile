@@ -1,0 +1,22 @@
+# Formulae
+brew 'tmux'
+brew 'neovim'
+brew 'wget'
+brew 'fzf'
+brew 'go'
+brew 'zoxide'
+brew 'eza'
+brew 'ripgrep'
+brew 'fd'
+brew 'lazygit'
+brew 'gh'
+brew 'sqlite'
+brew 'psql'
+
+# Casks
+cask 'ghostty'
+cask 'raycast'
+cask 'docker'
+cask 'scroll-reverser'
+cask 'karabiner-elements'
+cask 'hiddenbar'

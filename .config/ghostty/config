@@ -1,0 +1,17 @@
+theme = rose-pine
+font-size = 24
+font-family = "JetBrains Mono"
+shell-integration = zsh
+shell-integration-features = no-cursor,no-sudo,no-title
+cursor-style = block
+mouse-scroll-multiplier = 0.5
+macos-option-as-alt = true
+macos-titlebar-proxy-icon = hidden
+macos-titlebar-style = tabs
+title = " "
+window-padding-balance = true
+window-width = 9999
+window-height = 9999
+copy-on-select = clipboard
+command = zsh -l $HOME/.local/scripts/tmux-attach.sh
+background = 000000
