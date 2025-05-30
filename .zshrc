@@ -110,6 +110,6 @@ source $ZSH_CUSTOM/paths.zsh
 source $ZSH_CUSTOM/aliases.zsh
 source $ZSH_CUSTOM/options.zsh
 
-source $ZSH_CUSTOM/bachcare.zsh
+[[ -f $ZSH_CUSTOM/bachcare.zsh ]] && source $ZSH_CUSTOM/bachcare.zsh
 
 # zprof

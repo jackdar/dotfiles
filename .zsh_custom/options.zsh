@@ -1,6 +1,3 @@
-# -- [[ Node ]]
-export NODE_TLS_REJECT_UNAUTHORIZED=0
-
 # --[[ Git ]]--
 export GIT_CONFIG_GLOBAL=$HOME/.config/git/.gitconfig
 export GIT_IGNORE_GLOBAL=$HOME/.config/git/.ignore
