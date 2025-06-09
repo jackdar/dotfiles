@@ -1,4 +1,7 @@
 !.env
 !*/.env
 !**/db*.json
-!node_modules/
+**/node_modules/
+.git
+dist/
+vendor/

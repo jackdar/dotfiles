@@ -12,6 +12,7 @@ brew 'lazygit'
 brew 'gh'
 brew 'sqlite'
 brew 'psql'
+brew 'fnm'
 
 # Casks
 cask 'ghostty'

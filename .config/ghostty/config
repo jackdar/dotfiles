@@ -1,17 +1,33 @@
-theme = rose-pine
-font-size = 24
-font-family = "JetBrains Mono"
-shell-integration = zsh
-shell-integration-features = no-cursor,no-sudo,no-title
-cursor-style = block
-mouse-scroll-multiplier = 0.5
-macos-option-as-alt = true
-macos-titlebar-proxy-icon = hidden
-macos-titlebar-style = tabs
-title = " "
-window-padding-balance = true
+# theme = rose-pine
+# theme = "iTerm2 Pastel Dark Background"
+# theme = "GruvboxDarkHard"
+theme = ayu
+
+font-size = 22
+font-thicken = true
+background = 0e0e0e
+background-opacity = 0.95
+background-blur-radius = 100
+
+window-padding-x = 8
+window-padding-y = 8
 window-width = 9999
 window-height = 9999
-copy-on-select = clipboard
+window-padding-balance = true
+
+cursor-style = bar
+shell-integration = zsh
+# shell-integration-features = no-cursor,no-sudo,no-title
+title = " "
+mouse-scroll-multiplier = 0.5
+bold-is-bright = true
+copy-on-select = true
+window-vsync = true
+
 command = zsh -l $HOME/.local/scripts/tmux-attach.sh
-background = 000000
+
+# macos-titlebar-style = tabs
+macos-titlebar-style = hidden
+macos-titlebar-proxy-icon = hidden
+macos-option-as-alt = true
+
