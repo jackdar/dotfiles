@@ -5,7 +5,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(fd . ~/ ~/projects ~/projects/property-guide ~/projects/msp ~/projects/sykes ~/projects/cdk ~/projects/cdk/cdk-appsync ~/.config ~/personal -d 1 -t d --hidden | sed "s|$HOME|~|" | fzf | sed "s|^~|$HOME|" | sed 's:/*$::')
+  selected=$(fd . ~/ ~/projects ~/projects/property-guide ~/projects/msp ~/projects/sykes ~/projects/cdk ~/projects/cdk/cdk-appsync ~/.config ~/personal -d 1 -t d --type l --hidden | sed "s|$HOME|~|" | fzf | sed "s|^~|$HOME|" | sed 's:/*$::')
 fi
 
 if [[ -z $selected ]]; then

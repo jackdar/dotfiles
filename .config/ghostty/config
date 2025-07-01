@@ -1,25 +1,25 @@
-# theme = rose-pine
+theme = rose-pine
 # theme = "iTerm2 Pastel Dark Background"
 # theme = "GruvboxDarkHard"
-theme = ayu
+# theme = ayu
 
 font-size = 22
-font-thicken = true
+# font-thicken = true
+
 background = 0e0e0e
 background-opacity = 0.95
-background-blur-radius = 100
+background-blur-radius = 255
 
 window-padding-x = 8
 window-padding-y = 8
 window-width = 9999
 window-height = 9999
-window-padding-balance = true
+# window-padding-balance = true
 
-cursor-style = bar
+cursor-style = block
 shell-integration = zsh
-# shell-integration-features = no-cursor,no-sudo,no-title
+shell-integration-features = no-cursor,no-sudo,no-title
 title = " "
-mouse-scroll-multiplier = 0.5
 bold-is-bright = true
 copy-on-select = true
 window-vsync = true
@@ -31,3 +31,5 @@ macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true
 
+mouse-scroll-multiplier = 0.5
+mouse-hide-while-typing = true

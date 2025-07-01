@@ -5,7 +5,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 FNM_PATH="/Users/jackdarlington/Library/Application Support/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/Users/jackdarlington/Library/Application Support/fnm:$PATH"
-  eval "`fnm env`"
+  eval "$(fnm env)"
 fi
 
 # Added by Visual Studio Code (code)
@@ -18,6 +18,10 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 
 # Cargo Path
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# SDKMAN
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # Add custom local scripts to PATH
 export PATH="$HOME/.local/scripts/:$PATH"
