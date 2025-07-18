@@ -1,0 +1,661 @@
+{
+  "profiles": [
+    {
+      "complex_modifications": {
+        "rules": [
+          {
+            "manipulators": [
+              {
+                "description": "Change caps_lock to command+control+option+shift.",
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": [
+                  {
+                    "key_code": "left_command",
+                    "modifiers": ["left_control", "left_option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change caps_lock to escape in Ghostty",
+            "enabled": false,
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "bundle_identifiers": ["com.mitchellh.ghostty"],
+                    "type": "frontmost_application_if"
+                  }
+                ],
+                "from": { "key_code": "caps_lock" },
+                "to": [{ "key_code": "escape" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change fn to left_control on the Built-In Keyboard",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "identifiers": [{ "is_built_in_keyboard": true }],
+                    "type": "device_if"
+                  }
+                ],
+                "from": { "key_code": "fn" },
+                "to": [{ "key_code": "left_control" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change right_option to fn on the Built-In Keyboard",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "identifiers": [{ "is_built_in_keyboard": true }],
+                    "type": "device_if"
+                  }
+                ],
+                "from": { "key_code": "right_option" },
+                "to": [{ "key_code": "fn" }],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
+      },
+      "devices": [
+        {
+          "fn_function_keys": [
+            {
+              "from": { "key_code": "f1" },
+              "to": [{ "key_code": "f1" }]
+            },
+            {
+              "from": { "key_code": "f2" },
+              "to": [{ "key_code": "f2" }]
+            },
+            {
+              "from": { "key_code": "f3" },
+              "to": [{ "key_code": "f3" }]
+            },
+            {
+              "from": { "key_code": "f4" },
+              "to": [{ "key_code": "f4" }]
+            },
+            {
+              "from": { "key_code": "f5" },
+              "to": [{ "key_code": "f5" }]
+            },
+            {
+              "from": { "key_code": "f6" },
+              "to": [{ "key_code": "f6" }]
+            },
+            {
+              "from": { "key_code": "f7" },
+              "to": [{ "key_code": "f7" }]
+            },
+            {
+              "from": { "key_code": "f8" },
+              "to": [{ "key_code": "f8" }]
+            },
+            {
+              "from": { "key_code": "f9" },
+              "to": [{ "key_code": "f9" }]
+            },
+            {
+              "from": { "key_code": "f10" },
+              "to": [{ "key_code": "f10" }]
+            },
+            {
+              "from": { "key_code": "f11" },
+              "to": [{ "key_code": "f11" }]
+            },
+            {
+              "from": { "key_code": "f12" },
+              "to": [{ "key_code": "f12" }]
+            }
+          ],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 2064,
+            "vendor_id": 13364
+          },
+          "ignore": false,
+          "ignore_vendor_events": true
+        },
+        {
+          "fn_function_keys": [
+            {
+              "from": { "key_code": "f1" },
+              "to": [{ "key_code": "f1" }]
+            },
+            {
+              "from": { "key_code": "f2" },
+              "to": [{ "key_code": "f2" }]
+            },
+            {
+              "from": { "key_code": "f3" },
+              "to": [{ "key_code": "f3" }]
+            },
+            {
+              "from": { "key_code": "f4" },
+              "to": [{ "key_code": "f4" }]
+            },
+            {
+              "from": { "key_code": "f5" },
+              "to": [{ "key_code": "f5" }]
+            },
+            {
+              "from": { "key_code": "f6" },
+              "to": [{ "key_code": "f6" }]
+            },
+            {
+              "from": { "key_code": "f7" },
+              "to": [{ "key_code": "f7" }]
+            },
+            {
+              "from": { "key_code": "f8" },
+              "to": [{ "key_code": "f8" }]
+            },
+            {
+              "from": { "key_code": "f9" },
+              "to": [{ "key_code": "f9" }]
+            },
+            {
+              "from": { "key_code": "f10" },
+              "to": [{ "key_code": "f10" }]
+            },
+            {
+              "from": { "key_code": "f11" },
+              "to": [{ "key_code": "f11" }]
+            },
+            {
+              "from": { "key_code": "f12" },
+              "to": [{ "key_code": "f12" }]
+            }
+          ],
+          "identifiers": {
+            "is_keyboard": true,
+            "product_id": 2064,
+            "vendor_id": 13364
+          },
+          "ignore_vendor_events": true
+        }
+      ],
+      "name": "Default profile",
+      "selected": true,
+      "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+    },
+    {
+      "complex_modifications": {
+        "rules": [
+          {
+            "description": "Change caps lock to hyper key when held and escape when tapped.",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to_if_alone": [{ "key_code": "escape" }],
+                "to_if_held_down": [
+                  {
+                    "key_code": "left_shift",
+                    "modifiers": ["left_command", "left_control", "left_option"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change double tap right ⇧ key to caps lock",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "name": "right_shift pressed",
+                    "type": "variable_if",
+                    "value": 1
+                  }
+                ],
+                "from": {
+                  "key_code": "right_shift",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": [{ "key_code": "caps_lock" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "right_shift",
+                  "modifiers": { "optional": ["any"] }
+                },
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "right_shift pressed",
+                      "value": 1
+                    }
+                  },
+                  { "key_code": "right_shift" }
+                ],
+                "to_delayed_action": {
+                  "to_if_canceled": [
+                    {
+                      "set_variable": {
+                        "name": "right_shift pressed",
+                        "value": 0
+                      }
+                    }
+                  ],
+                  "to_if_invoked": [
+                    {
+                      "set_variable": {
+                        "name": "right_shift pressed",
+                        "value": 0
+                      }
+                    }
+                  ]
+                },
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Programming symbols on top row with shift+key for numbers",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "1",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [{ "key_code": "1" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "1" },
+                "to": [
+                  {
+                    "key_code": "8",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "2",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [{ "key_code": "2" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "2" },
+                "to": [{ "key_code": "open_bracket" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "3",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [{ "key_code": "3" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "3" },
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "4",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [{ "key_code": "4" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "4" },
+                "to": [
+                  {
+                    "key_code": "9",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "5",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [{ "key_code": "5" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "5" },
+                "to": [
+                  {
+                    "key_code": "3",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "6",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [{ "key_code": "6" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "6" },
+                "to": [
+                  {
+                    "key_code": "6",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "7",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [{ "key_code": "7" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "7" },
+                "to": [
+                  {
+                    "key_code": "0",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "8",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [{ "key_code": "8" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "8" },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "9",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [{ "key_code": "9" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "9" },
+                "to": [{ "key_code": "close_bracket" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "0",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [{ "key_code": "0" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "0" },
+                "to": [
+                  {
+                    "key_code": "4",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "open_bracket" },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "close_bracket" },
+                "to": [
+                  {
+                    "key_code": "1",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "open_bracket",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [
+                  {
+                    "key_code": "5",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "close_bracket",
+                  "modifiers": { "mandatory": ["shift"] }
+                },
+                "to": [
+                  {
+                    "key_code": "2",
+                    "modifiers": ["shift"]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change fn to left_control on the Built-In Keyboard",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "identifiers": [{ "is_built_in_keyboard": true }],
+                    "type": "device_if"
+                  }
+                ],
+                "from": { "key_code": "fn" },
+                "to": [{ "key_code": "left_control" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change right_option to fn on the Built-In Keyboard",
+            "manipulators": [
+              {
+                "conditions": [
+                  {
+                    "identifiers": [{ "is_built_in_keyboard": true }],
+                    "type": "device_if"
+                  }
+                ],
+                "from": { "key_code": "right_option" },
+                "to": [{ "key_code": "fn" }],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
+      },
+      "devices": [
+        {
+          "fn_function_keys": [
+            {
+              "from": { "key_code": "f1" },
+              "to": [{ "key_code": "f1" }]
+            },
+            {
+              "from": { "key_code": "f2" },
+              "to": [{ "key_code": "f2" }]
+            },
+            {
+              "from": { "key_code": "f3" },
+              "to": [{ "key_code": "f3" }]
+            },
+            {
+              "from": { "key_code": "f4" },
+              "to": [{ "key_code": "f4" }]
+            },
+            {
+              "from": { "key_code": "f5" },
+              "to": [{ "key_code": "f5" }]
+            },
+            {
+              "from": { "key_code": "f6" },
+              "to": [{ "key_code": "f6" }]
+            },
+            {
+              "from": { "key_code": "f7" },
+              "to": [{ "key_code": "f7" }]
+            },
+            {
+              "from": { "key_code": "f8" },
+              "to": [{ "key_code": "f8" }]
+            },
+            {
+              "from": { "key_code": "f9" },
+              "to": [{ "key_code": "f9" }]
+            },
+            {
+              "from": { "key_code": "f10" },
+              "to": [{ "key_code": "f10" }]
+            },
+            {
+              "from": { "key_code": "f11" },
+              "to": [{ "key_code": "f11" }]
+            },
+            {
+              "from": { "key_code": "f12" },
+              "to": [{ "key_code": "f12" }]
+            }
+          ],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 2064,
+            "vendor_id": 13364
+          },
+          "ignore": false,
+          "ignore_vendor_events": true
+        },
+        {
+          "fn_function_keys": [
+            {
+              "from": { "key_code": "f1" },
+              "to": [{ "key_code": "f1" }]
+            },
+            {
+              "from": { "key_code": "f2" },
+              "to": [{ "key_code": "f2" }]
+            },
+            {
+              "from": { "key_code": "f3" },
+              "to": [{ "key_code": "f3" }]
+            },
+            {
+              "from": { "key_code": "f4" },
+              "to": [{ "key_code": "f4" }]
+            },
+            {
+              "from": { "key_code": "f5" },
+              "to": [{ "key_code": "f5" }]
+            },
+            {
+              "from": { "key_code": "f6" },
+              "to": [{ "key_code": "f6" }]
+            },
+            {
+              "from": { "key_code": "f7" },
+              "to": [{ "key_code": "f7" }]
+            },
+            {
+              "from": { "key_code": "f8" },
+              "to": [{ "key_code": "f8" }]
+            },
+            {
+              "from": { "key_code": "f9" },
+              "to": [{ "key_code": "f9" }]
+            },
+            {
+              "from": { "key_code": "f10" },
+              "to": [{ "key_code": "f10" }]
+            },
+            {
+              "from": { "key_code": "f11" },
+              "to": [{ "key_code": "f11" }]
+            },
+            {
+              "from": { "key_code": "f12" },
+              "to": [{ "key_code": "f12" }]
+            }
+          ],
+          "identifiers": {
+            "is_keyboard": true,
+            "product_id": 2064,
+            "vendor_id": 13364
+          },
+          "ignore_vendor_events": true
+        }
+      ],
+      "fn_function_keys": [
+        {
+          "from": { "key_code": "f5" },
+          "to": [{ "key_code": "f5" }]
+        }
+      ],
+      "name": "Programmer's QWERTY",
+      "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+    }
+  ]
+}
+

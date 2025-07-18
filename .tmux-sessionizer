@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [[ "$(pwd)" == $HOME/personal ]]; then
+    clear
+    return
+fi
+tmux new-window -d
+vim .
+clear

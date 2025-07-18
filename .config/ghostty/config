@@ -4,10 +4,10 @@ theme = rose-pine
 # theme = ayu
 
 font-size = 22
-# font-thicken = true
 
-background = 0e0e0e
-background-opacity = 0.95
+background = 000000
+# background = 0e0e0e
+# background-opacity = 0.90
 background-blur-radius = 255
 
 window-padding-x = 8
@@ -24,7 +24,7 @@ bold-is-bright = true
 copy-on-select = true
 window-vsync = true
 
-command = zsh -l $HOME/.local/scripts/tmux-attach.sh
+command = zsh -l $HOME/.local/scripts/tmux-attach
 
 # macos-titlebar-style = tabs
 macos-titlebar-style = hidden
@@ -33,3 +33,5 @@ macos-option-as-alt = true
 
 mouse-scroll-multiplier = 0.5
 mouse-hide-while-typing = true
+
+confirm-close-surface = false

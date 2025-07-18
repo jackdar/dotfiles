@@ -115,3 +115,8 @@ source $ZSH_CUSTOM/options.zsh
 [[ -f $ZSH_CUSTOM/bachcare.zsh ]] && source $ZSH_CUSTOM/bachcare.zsh
 
 # zprof
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/jackdarlington/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions

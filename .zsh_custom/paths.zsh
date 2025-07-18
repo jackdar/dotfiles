@@ -23,5 +23,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# Add custom local scripts to PATH
+# Add custom local scripts and binaries to PATH
 export PATH="$HOME/.local/scripts/:$PATH"
+export PATH="$HOME/.local/bin/:$PATH"
