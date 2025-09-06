@@ -22,13 +22,18 @@ fi
 if [[ $remote_url =~ ^git@([^:]+):(.+)\.git$ ]]; then
     host="${BASH_REMATCH[1]}"
     repo_path="${BASH_REMATCH[2]}"
+    current_branch=$(git branch --show-current)
+
+    if [ -z "$current_branch" ]; then
+        current_branch="master"
+    fi
 
     case "$host" in
     "github.com")
         web_url="https://github.com/$repo_path"
         ;;
     "bitbucket.org")
-        web_url="https://bitbucket.org/$repo_path"
+        web_url="https://bitbucket.org/$repo_path/branch/$current_branch"
         ;;
     "gitlab.com")
         web_url="https://gitlab.com/$repo_path"

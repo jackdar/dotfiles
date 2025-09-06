@@ -1,14 +1,15 @@
 theme = rose-pine
+# theme = ash
 # theme = "iTerm2 Pastel Dark Background"
 # theme = "GruvboxDarkHard"
 # theme = ayu
 
-font-size = 22
+font-size = 24
 
-background = 000000
-# background = 0e0e0e
-# background-opacity = 0.90
-background-blur-radius = 255
+# background = 000000
+background = 040406
+# background-opacity = 0.98
+# background-blur-radius = 255
 
 window-padding-x = 8
 window-padding-y = 8
