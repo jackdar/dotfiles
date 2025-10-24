@@ -1,6 +1,0 @@
-{
-    "require": {
-        "jetbrains/phpstorm-stubs": "^2024.3",
-        "laravel/installer": "^5.17"
-    }
-}
