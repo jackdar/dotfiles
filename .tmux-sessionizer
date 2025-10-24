@@ -5,5 +5,5 @@ if [[ "$(pwd)" == $HOME/personal ]]; then
     return
 fi
 tmux new-window -d
-vim .
+tmux send-keys "nvim ." C-m
 clear
