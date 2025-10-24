@@ -24,3 +24,8 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+
+# Unbind Control S... for tmux leader
+bindkey -r '^S'
+bindkey -r '^S^N'
+bindkey -r '^S^P'

@@ -1,11 +1,11 @@
 **/.gitconfig*
 
-**/gh/**
-**/git/**
-**/github-copilot/**
-**/jgit/**
-
-**/vendor
+.config/gh
+.config/git
+.config/github-copilot
+.config/jgit
+.config/vendor
+.config/aerospace
 
 # Work settings ignore
 **/.local/bachcare/*
