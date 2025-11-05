@@ -242,7 +242,7 @@ find_dirs() {
             path="$entry"
         fi
 
-        [[ -d "$path" ]] && fd -t d --min-depth 1 --max-depth "${depth:-${TS_MAX_DEPTH:-1}}" -E '.git' -H . "$path"
+        [[ -d "$path" ]] && fd -t d --follow --min-depth 1 --max-depth "${depth:-${TS_MAX_DEPTH:-1}}" -E '.git' -H . "$path"
     done
 }
 
