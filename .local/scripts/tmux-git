@@ -19,7 +19,7 @@ if [ $exit_code -ne 0 ] || [ -z "$remote_url" ]; then
     exit 1
 fi
 
-if [[ $remote_url =~ ^git@([^:]+):(.+)\.git$ ]]; then
+if [[ $remote_url =~ ^git@([^:]+):(.+)(\.git)?$ ]]; then
     host="${BASH_REMATCH[1]}"
     repo_path="${BASH_REMATCH[2]}"
     current_branch=$(git branch --show-current)
