@@ -23,6 +23,12 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
 ZSH_THEME="robbyrussell"
 ZSH_CUSTOM=~/.zsh_custom/
 

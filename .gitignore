@@ -1,12 +1,3 @@
-**/.gitconfig*
-
-**/gh/**
-**/git/**
-**/github-copilot/**
-**/jgit/**
-
-**/vendor
-
 # Work settings ignore
-**/.local/bachcare/*
-**/.zsh_custom/bachcare*
+.local/bachcare/*
+.zsh_custom/bachcare*

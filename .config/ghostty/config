@@ -7,9 +7,9 @@ theme = Rose Pine
 
 font-size = 26
 
-# background = 000000
+background = 000000
 # background = 040406
-background = 0b0a10
+# background = 0b0a10
 # background-opacity = 0.95
 # background-blur-radius = 255
 
