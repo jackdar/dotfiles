@@ -1,2 +1,4 @@
 .DS_Store
-.tmux_sessionizer
+.tmux-sessionizer
+
+**/.claude/settings.local.json

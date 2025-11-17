@@ -5,7 +5,9 @@ theme = Rose Pine
 # theme = ayu
 # theme = Apple System Colors Dark 
 
-font-size = 26
+font-family = IBM Plex Mono
+font-family-bold = IBM Plex Mono Bold
+font-size = 24
 
 background = 000000
 # background = 040406
@@ -26,8 +28,6 @@ title = " "
 bold-is-bright = true
 copy-on-select = true
 window-vsync = true
-
-command = zsh -l $HOME/.local/scripts/tmux-attach
 
 # macos-titlebar-style = tabs
 macos-titlebar-style = hidden

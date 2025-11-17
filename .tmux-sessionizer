@@ -1,9 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env fish
 
-if [[ "$(pwd)" == $HOME/personal ]]; then
+# Skip if in personal directory
+# if [[ "$(pwd)" == $HOME/personal ]]; then
+#     clear
+#     return
+# fi
+if test (pwd) = "$HOME/personal"
     clear
     return
-fi
+end
+
+# Create new window with nvim
 tmux new-window -d
 tmux send-keys "nvim ." C-m
 clear
