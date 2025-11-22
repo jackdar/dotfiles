@@ -9,9 +9,9 @@ font-family = IBM Plex Mono
 font-family-bold = IBM Plex Mono Bold
 font-size = 24
 
-background = 000000
+# background = 000000
 # background = 040406
-# background = 0b0a10
+background = 0b0a10
 # background-opacity = 0.95
 # background-blur-radius = 255
 
