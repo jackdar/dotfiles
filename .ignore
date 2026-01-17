@@ -8,3 +8,4 @@ vendor/
 .DS_Store
 **/*.snap
 **/cdk.out/**
+!config.toml

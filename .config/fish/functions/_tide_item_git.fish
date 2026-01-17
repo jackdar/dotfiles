@@ -1,7 +1,25 @@
 function _tide_item_git
     if git branch --show-current 2>/dev/null | string shorten -"$tide_git_truncation_strategy"m$tide_git_truncation_length | read -l location
         git rev-parse --git-dir --is-inside-git-dir | read -fL gdir in_gdir
-        set location $_tide_location_color$location
+        # Check for feature/ or bugfix/ prefix and set custom colors
+        if string match -qr '^feature/' $location
+            set location (string replace -r '^feature/' '' $location)
+            set -f _custom_branch_color blue
+        else if string match -qr '^bugfix/' $location
+            set location (string replace -r '^bugfix/' '' $location)
+            set -f _custom_branch_color red
+        else if string match -qr '^spike/' $location
+            set location (string replace -r '^spike/' '' $location)
+            set -f _custom_branch_color yellow
+        else
+            set -f _custom_branch_color brblack
+        end
+
+        # Remove HBT-1234- from the start of the remaining branch name
+        # if string match -qr '^(HBT)-[0-9]+-' $location
+        #     set location (string replace -r '^(HBT)-[0-9]+-' '' $location)
+        # end
+
     else if test $pipestatus[1] != 0
         return
     else if git tag --points-at HEAD | string shorten -"$tide_git_truncation_strategy"m$tide_git_truncation_length | read location
@@ -61,7 +79,7 @@ function _tide_item_git
         set -g tide_git_bg_color $tide_git_bg_color_unstable
     end
 
-    _tide_print_item git $_tide_location_color$tide_git_icon' ' (set_color white; echo -ns $location
+    _tide_print_item git $_tide_location_color$tide_git_icon' ' (if set -q _custom_branch_color; set_color $_custom_branch_color; end; echo -ns $location
         set_color $tide_git_color_operation; echo -ns ' '$operation ' '$step/$total_steps
         set_color $tide_git_color_upstream; echo -ns ' ⇣'$behind ' ⇡'$ahead
         set_color $tide_git_color_stash; echo -ns ' *'$stash

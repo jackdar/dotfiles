@@ -1,17 +1,17 @@
-# theme = Oxocarbon
 theme = Rose Pine
-# theme = Apple System Colors
 # theme = Catppuccin Mocha
 # theme = Gruvbox Dark Hard
 # theme = iTerm2 Pastel Dark Background
+# theme = ayu
+# theme = Apple System Colors Dark 
 
 font-family = IBM Plex Mono
 font-family-bold = IBM Plex Mono Bold
-font-size = 28
+font-size = 24
 
-# background = 000000
+background = 000000
 # background = 040406
-background = 0b0a10
+# background = 0b0a10
 # background-opacity = 0.95
 # background-blur-radius = 255
 
@@ -22,14 +22,15 @@ window-height = 9999
 # window-padding-balance = true
 
 cursor-style = block
-shell-integration = fish
+shell-integration = zsh
 shell-integration-features = no-cursor,no-sudo,no-title
+title = " "
 bold-is-bright = true
 copy-on-select = true
-# window-vsync = true
+window-vsync = true
 
 # macos-titlebar-style = tabs
-# macos-titlebar-style = hidden
+macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true
 
@@ -37,4 +38,3 @@ mouse-scroll-multiplier = 0.5
 mouse-hide-while-typing = true
 
 confirm-close-surface = false
-keybind = shift+enter=text:\x1b\r

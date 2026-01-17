@@ -1,0 +1,249 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Default values
+output_file=""
+input_file=""
+format="gif"
+scale="1000"
+
+# Function to display usage
+usage() {
+  echo "Usage: $0 [OPTIONS] input_file"
+  echo ""
+  echo "Options:"
+  echo "  -o, --output FILE    Output file path"
+  echo "  -f, --format FORMAT  Output format: gif, webm, mp4 (default: gif)"
+  echo "  -s, --scale WIDTH    Scale width in pixels (default: input resolution)"
+  echo ""
+  echo "Examples:"
+  echo "  $0 video.mov"
+  echo "  $0 -f webm -s 500 video.mov"
+  echo "  $0 -o output.webm -f webm video.mov"
+  echo "  $0 input.gif -o optimized.gif  # Optimize existing GIF"
+  exit 1
+}
+
+# Check if required tools are installed
+check_dependencies() {
+  local input_ext="${input_file##*.}"
+
+  # If input is already a GIF and output is GIF, we only need gifsicle
+  if [ "$input_ext" = "gif" ] && [ "$format" = "gif" ]; then
+    if ! command -v gifsicle &>/dev/null; then
+      echo "Error: gifsicle is not installed. Please install gifsicle to optimize GIFs."
+      exit 1
+    fi
+    return 0
+  fi
+
+  # Otherwise we need ffmpeg
+  if ! command -v ffmpeg &>/dev/null; then
+    echo "Error: ffmpeg is not installed. Please install ffmpeg to use this script."
+    exit 1
+  fi
+
+  if ! command -v ffprobe &>/dev/null; then
+    echo "Error: ffprobe is not installed (comes with ffmpeg)."
+    exit 1
+  fi
+
+  if [ "$format" = "gif" ] && ! command -v gifsicle &>/dev/null; then
+    echo "Error: gifsicle is not installed. Please install gifsicle to create GIFs."
+    exit 1
+  fi
+}
+
+# Validate format
+validate_format() {
+  case "$format" in
+  gif | webm | mp4)
+    return 0
+    ;;
+  *)
+    echo "Error: Unsupported format '$format'. Use gif, webm, or mp4"
+    exit 1
+    ;;
+  esac
+}
+
+# Get input video width
+get_input_width() {
+  local width
+  width=$(ffprobe -v error -select_streams v:0 -show_entries stream=width -of csv=p=0 "$input_file")
+  if [ -z "$width" ]; then
+    echo "Error: Could not determine input video width"
+    exit 1
+  fi
+  echo "$width"
+}
+
+# Optimize existing GIF
+optimize_gif() {
+  echo "Optimizing GIF..."
+
+  if [ -n "$scale" ]; then
+    # Scale and optimize
+    gifsicle -O3 --lossy=30 --resize "${scale}x" "$input_file" -o "$output_file"
+  else
+    # Just optimize, no scaling
+    gifsicle -O3 --lossy=30 "$input_file" -o "$output_file"
+  fi
+}
+
+# Create GIF from video
+create_gif() {
+  local temp_file="${output_file%.*}.tmp.gif"
+  trap "rm -f '$temp_file'" EXIT
+
+  local scale_filter
+  if [ -n "$scale" ]; then
+    scale_filter="fps=12,scale=$scale:-1:flags=lanczos"
+    echo "Creating GIF at ${scale}px width..."
+  else
+    # Get input width for display purposes
+    local input_width=$(get_input_width)
+    scale_filter="fps=12,scale=$input_width:-1:flags=lanczos"
+    echo "Creating GIF at original resolution (${input_width}px width)..."
+  fi
+
+  ffmpeg -loglevel error -i "$input_file" -vf "${scale_filter},split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" "$temp_file"
+  gifsicle -O3 --lossy=30 "$temp_file" -o "$output_file"
+}
+
+# Create WebM
+create_webm() {
+  local scale_filter
+  if [ -n "$scale" ]; then
+    scale_filter="scale=$scale:-1"
+    echo "Creating WebM at ${scale}px width..."
+  else
+    local input_width=$(get_input_width)
+    scale_filter="scale=$input_width:-1"
+    echo "Creating WebM at original resolution (${input_width}px width)..."
+  fi
+
+  ffmpeg -loglevel error -i "$input_file" -vf "$scale_filter" -c:v libvpx-vp9 -b:v 0 -crf 30 -an "$output_file"
+}
+
+# Create MP4
+create_mp4() {
+  local scale_filter
+  if [ -n "$scale" ]; then
+    scale_filter="scale=$scale:-1"
+    echo "Creating MP4 at ${scale}px width..."
+  else
+    local input_width=$(get_input_width)
+    scale_filter="scale=$input_width:-1"
+    echo "Creating MP4 at original resolution (${input_width}px width)..."
+  fi
+
+  ffmpeg -loglevel error -i "$input_file" -vf "$scale_filter" -c:v libx264 -crf 23 -pix_fmt yuv420p -an "$output_file"
+}
+
+# Parse command line arguments
+parse_args() {
+  while [ $# -gt 0 ]; do
+    case "$1" in
+    -h | --help)
+      usage
+      ;;
+    -o | --output)
+      if [ -z "$2" ]; then
+        echo "Error: -o requires an argument"
+        exit 1
+      fi
+      output_file="$2"
+      shift 2
+      ;;
+    -f | --format)
+      if [ -z "$2" ]; then
+        echo "Error: -f requires an argument"
+        exit 1
+      fi
+      format="$2"
+      shift 2
+      ;;
+    -s | --scale)
+      if [ -z "$2" ]; then
+        echo "Error: -s requires an argument"
+        exit 1
+      fi
+      scale="$2"
+      shift 2
+      ;;
+    -*)
+      echo "Error: Unknown option: $1"
+      usage
+      ;;
+    *)
+      if [ -z "$input_file" ]; then
+        input_file="$1"
+      else
+        echo "Error: Multiple input files specified"
+        exit 1
+      fi
+      shift
+      ;;
+    esac
+  done
+}
+
+# Validate inputs
+validate_inputs() {
+  if [ -z "$input_file" ]; then
+    echo "Error: Input file required"
+    usage
+  fi
+
+  if [ ! -f "$input_file" ]; then
+    echo "Error: Input file '$input_file' does not exist"
+    exit 1
+  fi
+}
+
+# Main script execution
+main() {
+  parse_args "$@"
+  validate_inputs
+  validate_format
+  check_dependencies
+
+  # Detect input file type
+  local input_ext="${input_file##*.}"
+  local is_gif_input=false
+
+  if [ "$input_ext" = "gif" ]; then
+    is_gif_input=true
+  fi
+
+  # Set default output filename if not provided
+  if [ -z "$output_file" ]; then
+    output_file="${input_file%.*}.$format"
+  fi
+
+  # Handle GIF input -> GIF output (optimization only)
+  if [ "$is_gif_input" = true ] && [ "$format" = "gif" ]; then
+    optimize_gif
+    echo "Optimized GIF created: $output_file"
+    return 0
+  fi
+
+  # Process based on format
+  case "$format" in
+  gif)
+    create_gif
+    ;;
+  webm)
+    create_webm
+    ;;
+  mp4)
+    create_mp4
+    ;;
+  esac
+
+  echo "Optimized $format created: $output_file"
+}
+
+# Run main function with all script arguments
+main "$@"
