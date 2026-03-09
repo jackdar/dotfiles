@@ -1,0 +1,15 @@
+\.git
+\.gitignore
+\.gitmodules
+\.DS_Store
+
+^/README.*
+^/LICENSE.*
+^/COPYING.*
+
+scripts
+fonts
+
+Brewfile
+apt-packages.txt
+install.sh

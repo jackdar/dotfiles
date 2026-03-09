@@ -1,0 +1,22 @@
+# Formulae
+brew 'stow'
+brew 'tmux'
+brew 'neovim'
+brew 'wget'
+brew 'fzf'
+brew 'zoxide'
+brew 'eza'
+brew 'ripgrep'
+brew 'fd'
+brew 'gh'
+brew 'fnm'
+brew 'anomalyco/tap/opencode'
+
+# Casks
+cask 'ghostty'
+cask 'raycast'
+cask 'docker-desktop'
+cask 'scroll-reverser'
+cask 'karabiner-elements'
+cask 'hiddenbar'
+cask 'nikitabobko/tap/aerospace'
