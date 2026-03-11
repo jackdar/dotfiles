@@ -7,7 +7,7 @@ Personal system dotfiles for macOS and Ubuntu/Debian.
 You can run the install script directly from GitHub without manually cloning the repo:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/jackdar/dotfiles/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/jackdar/dotfiles/master/install.sh)
 ```
 
 What this does:
