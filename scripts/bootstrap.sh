@@ -70,7 +70,13 @@ install_packages() {
     if [[ -f "$DOTFILES_DIR/apt-packages.txt" ]]; then
       log "Installing apt packages"
       sudo apt-get update
-      mapfile -t pkgs < <(grep -vE '^\s*#|^\s*$' "$DOTFILES_DIR/apt-packages.txt")
+      local -a pkgs=()
+      local line
+      while IFS= read -r line; do
+        [[ "$line" =~ ^[[:space:]]*# ]] && continue
+        [[ "$line" =~ ^[[:space:]]*$ ]] && continue
+        pkgs+=("$line")
+      done < "$DOTFILES_DIR/apt-packages.txt"
       if ((${#pkgs[@]} > 0)); then
         sudo apt-get install -y "${pkgs[@]}"
       fi
@@ -106,9 +112,47 @@ install_manual_packages() {
 }
 
 stow_dotfiles() {
+  local os="$1"
+
   log "Stowing dotfiles"
   require stow
-  stow --dir "$DOTFILES_DIR" --target "$HOME" --restow .
+
+  local profile_dir="$DOTFILES_DIR/profiles"
+  local profile="${DOTFILES_PROFILE:-$os}"
+  local -a packages=()
+
+  if [[ -n "${DOTFILES_PACKAGES:-}" ]]; then
+    # shellcheck disable=SC2206
+    packages=(${DOTFILES_PACKAGES})
+  elif [[ -f "$profile_dir/$profile" ]]; then
+    local line
+    while IFS= read -r line; do
+      [[ "$line" =~ ^[[:space:]]*# ]] && continue
+      [[ "$line" =~ ^[[:space:]]*$ ]] && continue
+      packages+=("$line")
+    done < "$profile_dir/$profile"
+  else
+    packages=(git zsh tmux nvim)
+    if [[ "$os" == "macos" ]]; then
+      packages+=(ghostty karabiner aerospace)
+    fi
+  fi
+
+  local -a existing=()
+  local pkg
+  for pkg in "${packages[@]}"; do
+    if [[ -d "$DOTFILES_DIR/$pkg" ]]; then
+      existing+=("$pkg")
+    else
+      warn "Dotfiles package not found, skipping: $pkg"
+    fi
+  done
+
+  if ((${#existing[@]} == 0)); then
+    error "No dotfiles packages selected"
+  fi
+
+  stow --dir "$DOTFILES_DIR" --target "$HOME" --restow "${existing[@]}"
 }
 
 main() {
@@ -124,7 +168,7 @@ main() {
   install_packages "$os"
   install_manual_packages "$os"
   ensure_stow "$os"
-  stow_dotfiles
+  stow_dotfiles "$os"
   success "Bootstrap complete"
 }
 
