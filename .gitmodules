@@ -7,3 +7,6 @@
 [submodule ".zsh_custom/plugins/zsh-autosuggestions"]
 	path = .zsh_custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule ".config/tmux/plugins/vim-tmux-navigator"]
+	path = .config/tmux/plugins/vim-tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git

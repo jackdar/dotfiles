@@ -6,7 +6,6 @@ DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
 
 ensure_git() {
   if command -v git >/dev/null 2>&1; then
-    printf "git already installed\n"
     return
   fi
 
@@ -43,9 +42,20 @@ ensure_git() {
 
 ensure_git
 
+update_submodules() {
+  if [[ ! -f "$DOTFILES_DIR/.gitmodules" ]]; then
+    return
+  fi
+
+  printf "Updating git submodules...\n"
+  git -C "$DOTFILES_DIR" submodule sync --recursive
+  git -C "$DOTFILES_DIR" submodule update --init --recursive
+}
+
 if [[ -d "$DOTFILES_DIR/.git" ]]; then
-  printf "Updating existing dotfiles at %s\n" "$DOTFILES_DIR"
+  printf "Checking for updates at %s...\n" "$DOTFILES_DIR"
   git -C "$DOTFILES_DIR" pull --ff-only
+  update_submodules
 else
   if [[ -e "$DOTFILES_DIR" ]]; then
     printf "%s exists but is not a git repository\n" "$DOTFILES_DIR" >&2
@@ -54,7 +64,7 @@ else
 
   printf "Cloning dotfiles into %s\n" "$DOTFILES_DIR"
   git clone --recurse-submodules "$DOTFILES_REPO_URL" "$DOTFILES_DIR"
+  update_submodules
 fi
 
-printf "Running bootstrap script\n"
 bash "$DOTFILES_DIR/scripts/bootstrap.sh"
