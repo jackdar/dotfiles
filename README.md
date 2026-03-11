@@ -28,6 +28,22 @@ Re-running `install.sh` will:
 - Re-run bootstrap package installation.
 - Restow dotfiles.
 
+## Selecting dotfiles to stow
+
+By default, `scripts/bootstrap.sh` stows a small set of packages based on OS.
+
+- Override packages directly:
+
+```bash
+DOTFILES_PACKAGES="git zsh tmux nvim" bash ~/.dotfiles/scripts/bootstrap.sh
+```
+
+- Use a profile file from `profiles/`:
+
+```bash
+DOTFILES_PROFILE=macos bash ~/.dotfiles/scripts/bootstrap.sh
+```
+
 ## Package management status
 
 - On **macOS**, package installation is handled through Homebrew (`brew bundle` with `Brewfile`).
