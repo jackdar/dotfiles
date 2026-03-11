@@ -4,8 +4,6 @@ if [[ -x "/opt/homebrew/bin/brew" ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-. "$HOME/.cargo/env"
-
 path+=("$HOME/.local/bin")
 path+=("$HOME/.local/scripts")
 path+=("$HOME/.opencode/bin")
