@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+~/personal/tmux-sessionizer/target/release/tmux-sessionizer
