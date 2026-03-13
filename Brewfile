@@ -10,6 +10,13 @@ brew 'ripgrep'
 brew 'fd'
 brew 'gh'
 brew 'fnm'
+brew 'go'
+brew 'zig'
+brew 'lua'
+brew 'luarocks'
+brew 'tree-sitter'
+brew 'tree-sitter-cli'
+brew 'oven-sh/bun/bun'
 brew 'anomalyco/tap/opencode'
 
 # Casks

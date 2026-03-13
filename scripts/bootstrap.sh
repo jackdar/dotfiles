@@ -46,13 +46,6 @@ ensure_stow() {
   esac
 }
 
-ensure_omz() {
-  if ! [[ -d "$HOME/.oh-my-zsh" ]]; then
-    log "Installing Oh My Zsh"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  fi
-}
-
 install_packages() {
   local os="$1"
 
@@ -76,7 +69,7 @@ install_packages() {
         [[ "$line" =~ ^[[:space:]]*# ]] && continue
         [[ "$line" =~ ^[[:space:]]*$ ]] && continue
         pkgs+=("$line")
-      done < "$DOTFILES_DIR/apt-packages.txt"
+      done <"$DOTFILES_DIR/apt-packages.txt"
       if ((${#pkgs[@]} > 0)); then
         sudo apt-get install -y "${pkgs[@]}"
       fi
@@ -130,7 +123,7 @@ stow_dotfiles() {
       [[ "$line" =~ ^[[:space:]]*# ]] && continue
       [[ "$line" =~ ^[[:space:]]*$ ]] && continue
       packages+=("$line")
-    done < "$profile_dir/$profile"
+    done <"$profile_dir/$profile"
   else
     packages=(git zsh tmux nvim)
     if [[ "$os" == "macos" ]]; then
@@ -164,7 +157,6 @@ main() {
   esac
 
   log "Detected OS: $os"
-  ensure_omz
   install_packages "$os"
   install_manual_packages "$os"
   ensure_stow "$os"

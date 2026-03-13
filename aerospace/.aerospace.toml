@@ -48,7 +48,7 @@ automatically-unhide-macos-hidden-apps = false
 # persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B",
 #                          "C", "D", "E", "F", "G", "I", "M", "N", "O", "P", "Q",
 #                          "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 
 # A callback that runs every time binding mode changes
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -69,12 +69,12 @@ on-mode-changed = []
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 24
-    inner.vertical =   24
-    outer.left =       24
-    outer.bottom =     24
-    outer.top =        24
-    outer.right =      24
+    inner.horizontal = 0
+    inner.vertical =   0
+    outer.left =       0
+    outer.bottom =     0
+    outer.top =        0
+    outer.right =      0
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -134,6 +134,7 @@ on-mode-changed = []
     cmd-ctrl-alt-7 = 'workspace 7'
     cmd-ctrl-alt-8 = 'workspace 8'
     cmd-ctrl-alt-9 = 'workspace 9'
+    cmd-ctrl-alt-0 = 'workspace 0'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
     cmd-ctrl-alt-shift-1 = 'move-node-to-workspace 1'
@@ -145,6 +146,7 @@ on-mode-changed = []
     cmd-ctrl-alt-shift-7 = 'move-node-to-workspace 7'
     cmd-ctrl-alt-shift-8 = 'move-node-to-workspace 8'
     cmd-ctrl-alt-shift-9 = 'move-node-to-workspace 9'
+    cmd-ctrl-alt-shift-0 = 'move-node-to-workspace 0'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     cmd-ctrl-alt-tab = 'workspace-back-and-forth'
