@@ -1,0 +1,26 @@
+[user]
+	name = jackdar
+	email = jackdarlington2001@gmail.com
+[alias]
+  s = status -sb
+  l = log -5 --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%ai%C(reset) - %C(bold white)%an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)'
+  b = branch -a
+[core]
+	autocrlf = input
+	pager = less -F -X
+	excludesfile = ~/.gitignore
+	editor = nvim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[init]
+	defaultBranch = master
+[push]
+	autoSetupRemote = true
+[commit]
+	gpgsign = true
+	verbose = true
+[credential "https://github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential]
+	helper = cache

@@ -1,0 +1,23 @@
+theme = Nvim Dark
+
+font-family = "Iosevka Term"
+font-size = 28
+
+font-family = "Symbols Nerd Font Mono"
+
+window-padding-x = 4
+window-padding-y = 4
+window-padding-balance = true
+
+cursor-style = block
+cursor-opacity = 0.8
+
+shell-integration = zsh
+shell-integration-features = no-cursor,no-sudo,no-title,ssh-env
+
+macos-option-as-alt = true
+
+mouse-scroll-multiplier = 0.5
+mouse-hide-while-typing = true
+
+confirm-close-surface = false
