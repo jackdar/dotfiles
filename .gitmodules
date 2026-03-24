@@ -1,24 +1,24 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
-	url = https://github.com/jackdar/init.lua
+	url = https://github.com/jackdar/init.lua.git
 [submodule ".config/zsh/plugins/zsh-autosuggestions"]
 	path = .config/zsh/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule ".config/zsh/plugins/fast-syntax-highlighting"]
-	path = .config/zsh/plugins/fast-syntax-highlighting
-	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
 [submodule ".config/zsh/plugins/zsh-syntax-highlighting"]
 	path = .config/zsh/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule ".config/tmux/plugins/tmux-sensible"]
-	path = .config/tmux/plugins/tmux-sensible
-	url = https://github.com/tmux-users/tmux-sensible
-[submodule ".config/tmux/plugins/tmux-yank"]
-	path = .config/tmux/plugins/tmux-yank
-	url = https://github.com/tmux-users/tmux-yank
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule ".config/tmux/plugins/tpm"]
 	path = .config/tmux/plugins/tpm
-	url = https://github.com/tmux-users/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule ".config/tmux/plugins/tmux-sensible"]
+	path = .config/tmux/plugins/tmux-sensible
+	url = https://github.com/tmux-plugins/tmux-sensible
+[submodule ".config/tmux/plugins/tmux-yank"]
+	path = .config/tmux/plugins/tmux-yank
+	url = https://github.com/tmux-plugins/tmux-yank
 [submodule ".config/tmux/plugins/vim-tmux-navigator"]
 	path = .config/tmux/plugins/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
