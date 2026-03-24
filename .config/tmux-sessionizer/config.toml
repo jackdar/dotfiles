@@ -1,0 +1,11 @@
+directories = [
+    "~",
+    "~/dev",
+    "~/personal",
+    "~/learning",
+    "~/skyline",
+    "~/.config"
+]
+show_hidden = true
+follow_symlinks = true
+expand_tilde = false
