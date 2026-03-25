@@ -1,11 +1,19 @@
 directories = [
-    "~",
-    "~/dev",
-    "~/personal",
-    "~/learning",
-    "~/skyline",
-    "~/.config"
+  "~/dev",
+  "~/dev/sykes",
+  "~/dev/msp",
+  "~/dev/cdk",
+  "~/dev/native",
+  "~/dev/guide",
+  "~/dev/report",
+  "~/personal",
+  "~/dotfiles",
+  "~/dotfiles/.config",
+  "~/github",
+  "~/plugins",
+  "~/learning",
+  "~"
 ]
-show_hidden = true
-follow_symlinks = true
-expand_tilde = false
+display_tilde = true
+exclude_current_session = true
+navigate_session = true

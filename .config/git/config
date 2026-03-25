@@ -24,3 +24,5 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential]
 	helper = cache
+[includeIf "gitdir:~/dev/"]
+  path = gitconfig-work
