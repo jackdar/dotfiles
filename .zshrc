@@ -6,7 +6,7 @@ ZSH_THEME="robbyrussell"
 
 export ZSH="$HOME/.oh-my-zsh"
 
-zstyle ':omz:update' mode disabled
+zstyle ':omz:update' mode auto
 
 ZSH_CUSTOM="$HOME/.config/zsh"
 
