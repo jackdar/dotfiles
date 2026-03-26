@@ -1,0 +1,12 @@
+docker-nuke() {
+  # Stop and remove all containers
+  docker rm -f $(docker ps -aq) 2>/dev/null
+
+  # Remove all images
+  docker rmi -f $(docker images -q) 2>/dev/null
+
+  # Prune everything else (volumes, networks, build cache)
+  docker system prune --all --volumes --force
+
+  echo "Docker environment nuked."
+}

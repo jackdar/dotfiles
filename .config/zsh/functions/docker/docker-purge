@@ -1,0 +1,6 @@
+docker-purge() {
+  # Stop all containers
+  docker kill $(docker ps -aq) 2>/dev/null
+
+  echo "All containers stopped."
+}
