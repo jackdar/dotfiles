@@ -1,4 +1,13 @@
 .git
+.DS_Store
+*.snap
+node_modules
+dist
+vendor
+cdk.out
+
+!.env*
+
 .oh-my-zsh
 .config/zsh/plugins
 .config/tmux/plugins
