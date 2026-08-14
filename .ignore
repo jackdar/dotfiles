@@ -1,0 +1,9 @@
+.git
+.DS_Store
+*.snap
+node_modules
+dist
+vendor
+cdk.out
+**/.claude/settings.local.json
+!.env*
