@@ -36,8 +36,6 @@ alias t='tmux-sessionizer'
 
 eval "$(fnm env --use-on-cd --shell zsh)"
 
-eval "$(task-cli completions zsh)"
-
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 if [[ $- == *i* ]]; then
